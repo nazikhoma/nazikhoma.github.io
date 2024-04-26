@@ -1,0 +1,75 @@
+body {
+    font-family: 'Arial', sans-serif;
+    font-size: 14px;
+    margin: 0;
+    padding: 0;
+}
+.container {
+    max-width: 980px;
+    margin: 20px auto 0;
+}
+.left-side {
+    width: 25%;
+    background-color: lightslategray;
+    color: white;
+    float: left;
+}
+.right-side {
+    width: calc(75% - 20px);;
+    float: right;
+}
+.avatar {
+    width: 200px;
+    height: 200px;
+    overflow: hidden;
+    border-radius: 50%;
+    margin: 20px auto;
+}
+.image {
+    display: block;
+    width: 100%;
+}
+.info {
+    height: 100%;
+    padding-left: 20px;
+    color: white;
+}
+.header {
+    font-weight: bold;
+    font-size: 18px;
+}
+hr {
+    height: 2px;
+    border: none;
+    background-color: white;
+}
+.right-side hr {
+    height: 2px;
+    border: none;
+    background-color: lightgrey;
+}
+.text {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+ol,ul {
+    list-style-type: none;
+    padding: 0;
+}
+li {
+    margin-top: 5px;
+    padding-left: 0;
+
+}
+th {
+    text-align: left;
+}
+.date {
+    float: right;
+    width: 50%;
+    text-align: right;
+    height: 27px;
+}
+.spec {
+    line-height: 2;
+}
