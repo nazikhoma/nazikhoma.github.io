@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .column {
+            float: left;
+            width: calc(15% - 2px);
+            padding: 10px;
+            text-align: left;
+            border: 1px solid black;
+            box-sizing: border-box;
+            font-weight: bold;
+        }
+
+        .header {
+            background-color: #469536;
+            color: white;
+            width: calc(100% - 10px);
+            padding: 10px;
+            text-align: center;
+        }
+
+        .data {
+            background-color: #b7d5ac;
+        }
+
+        .data:last-child {
+            width: 25%;
+            text-align: left;
+        }
+
+        div.column.data:nth-child(2n+1) {
+            background-color: #dbead5;
+        }
+    </style>
+</head>
+<body>
+<div class="row">
+    <div class="column header">STUDENTS MARK SHEET</div>
+</div>
+<div class="row">
+    <div class="column data">Name</div>
+    <div class="column data">Maths</div>
+    <div class="column data">Science</div>
+    <div class="column data">English</div>
+    <div class="column data">Physics</div>
+    <div class="column data">General Knowledge</div>
+</div>
+<div class="row">
+    <div class="column data">David</div>
+    <div class="column data">85</div>
+    <div class="column data">87</div>
+    <div class="column data">88</div>
+    <div class="column data">92</div>
+    <div class="column data">88</div>
+</div>
+<div class="row">
+    <div class="column data">Richard</div>
+    <div class="column data">91</div>
+    <div class="column data">81</div>
+    <div class="column data">78</div>
+    <div class="column data">71</div>
+    <div class="column data">74</div>
+</div>
+<div class="row">
+    <div class="column data">John</div>
+    <div class="column data">81</div>
+    <div class="column data">86</div>
+    <div class="column data">88</div>
+    <div class="column data">84</div>
+    <div class="column data">92</div>
+</div>
+<div class="row">
+    <div class="column data">Tony</div>
+    <div class="column data">84</div>
+    <div class="column data">86</div>
+    <div class="column data">87</div>
+    <div class="column data">82</div>
+    <div class="column data">81</div>
+</div>
+<div class="row">
+    <div class="column data">Scott</div>
+    <div class="column data">71</div>
+    <div class="column data">79</div>
+    <div class="column data">82</div>
+    <div class="column data">88</div>
+    <div class="column data">89</div>
+</div>
+</body>
+</html>
