@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Position Example</title>
+    <style>
+        .container {
+            width: 200px;
+            height: 70px;
+            border: 5px solid black;
+            position: relative;
+            margin: 20px;
+        }
+
+        .container::after {
+            content: "";
+            position: absolute;
+            width: 10px;
+            height: 20px;
+            background-color: black;
+            top: 50%;
+            right: -10px;
+            transform: translateY(-50%);
+        }
+
+        .inner {
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .inner-25 {
+            width: 25%;
+            background-color: red; 
+        }
+
+        .inner-50 {
+            width: 50%;
+            background-color: orange; 
+        }
+
+        .inner-100 {
+            width: 100%;
+            background-color: green; 
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="inner inner-25"></div>
+    </div>
+    
+    <div class="container">
+        <div class="inner inner-50"></div>
+    </div>
+    
+    <div class="container">
+        <div class="inner inner-100"></div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title> TITLE </title>
+<style>
+.title-container {
+    text-align: center;
+    position: relative;
+}
+
+.title {
+    display: inline-block;
+    font-size: 24px;
+}
+
+.title:before, .title:after {
+    content: "";
+    position: absolute;
+    height: 2px;
+    border-top: 5px solid black;
+    top: 45%;
+    width: calc(50% - 75px);
+
+}
+
+.title:before {
+    right: 1%; 
+}
+
+.title:after {
+    left: 1%;
+
+}
+</style>
+</head>
+<body>
+
+<div class="title-container">
+    <h1 class="title">TITLE</h1>
+</div>
+
+</body>
+</html>
