@@ -125,7 +125,8 @@ body {
     border: none;
     cursor: pointer;
     font-size: 14px;
-    align-self: flex-end;
-    margin-left: auto;
     border-radius: 0;
+    position: absolute;
+    right: 0;
+    bottom: -50px;
 }
