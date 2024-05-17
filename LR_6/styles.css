@@ -67,6 +67,7 @@ body {
     height: auto;
     padding-left: 50px;
     padding-bottom: 50px;
+    position: relative;
 }
 
 .menu-list h2 {
@@ -124,10 +125,7 @@ body {
     border: none;
     cursor: pointer;
     font-size: 14px;
-    align-self: flex-start;
-    margin-left: 5px;
+    align-self: flex-end;
+    margin-left: auto;
     border-radius: 0;
-    position: relative;
-    right: 132px;
-    top: 680px;
 }
