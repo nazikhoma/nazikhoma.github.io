@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Title</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="form-container">
+<form>
+    <div class="container-name">
+    <p>
+        Hello! My name is <input type="text" name="name" placeholder="Name" width="100px"> and I work as a
+        <input type="text" name="role" placeholder="Role"> in <input type="text" name="company" placeholder="Company">
+    </p>
+        </div>
+    <p>
+        And i want to have more information about
+        <select name="info">
+            <option value="" disabled selected>Select Option</option>
+        </select>
+    </p>
+    <p>
+        I would like some help in <input type="text" name="info" placeholder="Tell us more">
+    </p>
+    <p>
+        I work in the following sector
+        <label class="radio-container">
+            <input type="radio" name="sector" value="startup"> Startup
+        </label>
+        <label class="radio-container">
+            <input type="radio" name="sector" value="sports"> Sports
+        </label>
+        <label class="radio-container">
+            <input type="radio" name="sector" value="health"> Health
+        </label>
+    </p>
+    <p>
+        Contact me at <input type="email" name="email" placeholder="Type your email">
+    </p>
+    <div class="button-container">
+    <button type="submit">SEND</button>
+    </div>
+</form>
+</div>
+</body>
+</html>
