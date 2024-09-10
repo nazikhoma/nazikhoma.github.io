@@ -42,9 +42,6 @@ input[name="email"]
 input[name="email"]{
     width: 550px;
 }
-div[class="container-name"] {
-    width: 100%;
-}
 
 input[name="sector"]{
     border: 1px solid black;
