@@ -5,11 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Хома Назар</title>
     <link rel="stylesheet" href="styles.css">
-    <script>
-        function openNewPage() {
-            window.location.href = 'success.html';
-        }
-    </script>
 </head>
 <body>
 <div class="text-container">
@@ -18,9 +13,9 @@
     <div class="bottom"><span class="text-bottom">MORE INFO?</span></div>
 </div>
 <div class="form-container">
-<form>
+<form action="success.html">
     <p>
-        Hello! My name is <input type="text" name="name" placeholder="Name" width="100px"> and I work as a
+        Hello! My name is <input type="text" name="name" placeholder="Name" width="100px" required> and I work as a
         <input type="text" name="role" placeholder="Role"> in <input type="text" name="company" placeholder="Company">
     </p>
     <p>
@@ -50,7 +45,7 @@
         </label>
     </p>
     <p>
-        Contact me at <input type="email" name="email" placeholder="Type your email">
+        Contact me at <input type="email" name="email" placeholder="Type your email" required>
     </p>
     <div class="button-container">
     <button type="submit" onclick="openNewPage()">SEND</button>
