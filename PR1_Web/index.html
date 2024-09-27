@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Хома Назар</title>
     <link rel="stylesheet" href="styles.css">
+    <script>
+        function openNewPage() {
+            window.location.href = 'success.html';
+        }
+    </script>
 </head>
 <body>
 <div class="text-container">
@@ -48,7 +53,7 @@
         Contact me at <input type="email" name="email" placeholder="Type your email">
     </p>
     <div class="button-container">
-    <button type="submit">SEND</button>
+    <button type="submit" onclick="openNewPage()">SEND</button>
     </div>
 </form>
 </div>

@@ -30,7 +30,24 @@ body {
     overflow: hidden;
 
 }
-
+.form-container-success {
+    background-color: rgb(255, 255, 255);
+    padding: 200px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    text-align: center;
+    position: relative;
+    z-index: 3;
+    margin-top: -25px;
+    overflow: hidden;
+}
+p {
+    font-size: 20px;
+}
+h1 {
+    font-size: 40px;
+}
 form p {
     font-size: 20px;
 }
@@ -136,6 +153,16 @@ button {
         width: 90%;
         padding: 60px;
     }
+    .form-container-success {
+        width: 90%;
+        padding: 120px;
+    }
+    h1 {
+        font-size: 36px;
+    }
+    p {
+        font-size: 18px;
+    }
 
     input[name="name"],
     input[name="role"],
@@ -193,6 +220,17 @@ button {
     .form-container {
         width: 90%;
         padding: 40px;
+    }
+    .form-container-success {
+        width: 90%;
+        padding: 80px;
+    }
+
+    h1 {
+        font-size: 28px;
+    }
+    p {
+        font-size: 14px;
     }
 
     input[name="name"],
@@ -258,6 +296,17 @@ button {
     .form-container {
         width: 100%;
         padding: 20px;
+    }
+
+    .form-container-success {
+        width: 100%;
+        padding: 40px;
+    }
+    h1 {
+        font-size: 24px;
+    }
+    p {
+        font-size: 12px;
     }
 
     input[name="name"],
