@@ -32,7 +32,7 @@ body {
 }
 .form-container-success {
     background-color: rgb(255, 255, 255);
-    padding: 200px;
+    padding: 180px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     width: 80%;
