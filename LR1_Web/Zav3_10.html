@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Хома ПІ-21-01</title>
+</head>
+<body>
+
+<button onclick="getStudents()">Ввести дані учнів</button>
+
+<script>
+    function getStudents() {
+        let studentCount = parseInt(prompt("Введіть кількість учнів у групі:"));
+        if (isNaN(studentCount) || studentCount <= 0) {
+            alert("Будь ласка, введіть дійсне число учнів.");
+            return;
+        }
+
+        let students = [];
+        for (let i = 0; i < studentCount; i++) {
+            let studentName = prompt("Введіть прізвище та ім'я учня #" + (i + 1) + ":");
+            students.push(studentName);
+        }
+        alert("Список учнів:\n" + students.join('\n'));
+    }
+</script>
+
+</body>
+</html>

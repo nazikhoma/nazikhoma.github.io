@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Хома ПІ-21-01</title>
+</head>
+<body>
+
+<button onclick="generateMultiplicationTable()">Показати таблицю множення</button>
+<pre id="result"></pre>
+
+<script>
+    function generateMultiplicationTable() {
+        let result = "";
+        for (let i = 1; i <= 10; i++) {
+            for (let j = 1; j <= 10; j++) {
+                result += `${i} x ${j} = ${i * j}\n`;
+            }
+            result += "\n";
+        }
+        document.getElementById('result').textContent = result;
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Хома ПІ-21-01</title>
+</head>
+<body>
+
+<button onclick="getNames()">Ввести дані учнів</button>
+<p id="result"></p>
+
+<script>
+  function getNames() {
+    let students = [];
+    let studentName;
+    while (true) {
+      studentName = prompt("Введіть прізвище та ім'я учня (натисніть 'Відміна' для завершення):");
+      if (studentName === null) {
+        break;
+      }
+
+      if (studentName.trim() === "") {
+        alert("Будь ласка, введіть правильне прізвище та ім'я.");
+      } else {
+        students.push(studentName);
+      }
+    }
+
+    if (students.length > 0) {
+      alert("Список учнів:\n" + students.join('\n'));
+    } else {
+      alert("Список учнів порожній.");
+    }
+  }
+</script>
+
+</body>
+</html>

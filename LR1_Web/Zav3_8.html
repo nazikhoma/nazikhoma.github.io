@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Хома ПІ-21-01</title>
+</head>
+<body>
+
+<button onclick="getSeason()">Дізнатися пору року за номером місяця</button>
+
+<script>
+  function getSeason() {
+    let monthNumber = parseInt(prompt("Введіть номер місяця (1-12):"));
+    let season;
+    if (monthNumber < 1 || monthNumber > 12 || isNaN(monthNumber)) {
+      season = "Будь ласка, введіть дійсний номер місяця (1-12).";
+    } else {
+      if (monthNumber === 12 || monthNumber <= 2) {
+        season = "Зима";
+      } else if (monthNumber <= 5) {
+        season = "Весна";
+      } else if (monthNumber <= 8) {
+        season = "Літо";
+      } else {
+        season = "Осінь";
+      }
+    }
+    alert(season);
+  }
+</script>
+
+</body>
+</html>

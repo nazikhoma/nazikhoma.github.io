@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Хома ПІ-21-01</title>
+</head>
+<body>
+
+<button onclick="addTwoNumbers()">Додати два числа</button>
+
+<script>
+    function addTwoNumbers() {
+        let firstNumber = parseFloat(prompt("Введіть перше число:"));
+        let secondNumber = parseFloat(prompt("Введіть друге число:"));
+        if (isNaN(firstNumber) || isNaN(secondNumber)) {
+            alert("Будь ласка, введіть правильні числа.");
+        } else {
+            let sum = firstNumber + secondNumber;
+            alert("Сума чисел " + firstNumber + " і " + secondNumber + " дорівнює " + sum + ".");
+        }
+    }
+</script>
+
+</body>
+</html>

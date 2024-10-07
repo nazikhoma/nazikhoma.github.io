@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Хома ПІ-21-01</title>
+</head>
+<body>
+
+<button onclick="findMaxNumber()">Знайти найбільше число</button>
+
+<script>
+    function findMaxNumber() {
+        let num1 = parseFloat(prompt("Введіть перше число:"));
+        let num2 = parseFloat(prompt("Введіть друге число:"));
+        if (isNaN(num1) || isNaN(num2)) {
+            alert("Будь ласка, введіть правильні числа.");
+        } else {
+            let maxNumber = Math.max(num1, num2);
+            alert("Найбільше число " + maxNumber + ".");
+        }
+    }
+</script>
+
+</body>
+</html>
