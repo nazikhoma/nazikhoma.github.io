@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Title</title>
+    <script src="Zav5.js"></script>
+    <style>
+        label, textarea {
+            display: block;
+            margin-bottom: 10px;
+        }
+        textarea {
+            width: 60%;
+            height: 50px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: green;
+            color: white;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<h1>Заміна формату дат з DD/MM/YYYY у YYYY/MM/DD</h1>
+<label for="input">Введіть текст із датами у форматі DD/MM/YYYY:</label>
+<textarea id="input"></textarea>
+<button onclick="replaceDates()">Замінити дати</button>
+<p id="output"></p>
+<p id="error"></p>
+</body>
+</html>
