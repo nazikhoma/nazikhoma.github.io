@@ -11,20 +11,43 @@
 
 <script>
     function getStudents() {
-        let studentCount = parseInt(prompt("Введіть кількість учнів у групі:"));
-        if (isNaN(studentCount) || studentCount <= 0) {
-            alert("Будь ласка, введіть дійсне число учнів.");
-            return;
+        let studentCount;
+        while (true) {
+            let input = prompt("Введіть кількість учнів у групі:");
+
+            if (input === null) {
+                return;
+            }
+
+            studentCount = Number(input);
+
+            if (Number.isInteger(studentCount) && studentCount > 0) {
+                break;
+            } else {
+                alert("Будь ласка, введіть ціле число учнів.");
+            }
         }
 
         let students = [];
         for (let i = 0; i < studentCount; i++) {
             let studentName = prompt("Введіть прізвище та ім'я учня #" + (i + 1) + ":");
+
+            if (studentName === null) {
+                if (students.length > 0) {
+                    alert("Список учнів:\n" + students.join('\n'));
+                } else {
+                    alert("Жодного учня не введено.");
+                }
+                return;
+            }
+
             students.push(studentName);
         }
+
         alert("Список учнів:\n" + students.join('\n'));
     }
 </script>
 
 </body>
 </html>
+
