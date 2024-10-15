@@ -4,22 +4,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Хома ПІ-21-01</title>
+    <style>
+        table {
+            width: 70%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        table, th, td {
+            border: 1px solid black;
+            text-align: center;
+            padding: 5px;
+        }
+    </style>
 </head>
 <body>
 
 <button onclick="generateMultiplicationTable()">Показати таблицю множення</button>
-<pre id="result"></pre>
+<div id="result"></div>
 
 <script>
     function generateMultiplicationTable() {
-        let result = "";
+        let result = "<table>";
+
         for (let i = 1; i <= 10; i++) {
+            result += "<tr>";
             for (let j = 1; j <= 10; j++) {
-                result += `${i} x ${j} = ${i * j}\n`;
+                result += `<td>${j} x ${i} = ${i * j}</td>`;
             }
-            result += "\n";
+            result += "</tr>";
         }
-        document.getElementById('result').textContent = result;
+
+        result += "</table>";
+        document.getElementById('result').innerHTML = result;
     }
 </script>
 
