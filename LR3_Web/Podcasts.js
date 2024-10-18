@@ -57,9 +57,22 @@ console.log("Подкасти про мистецтво:", artTopic)
 
 function addPodcastToPlaylist() {
     let title = prompt("Введіть назву підкасту:")
+    if (title === null) return;
     let author = prompt("Введіть автора підкасту:")
-    let duration = +prompt("Введіть тривалість подкасту в хвилинах:")
+    if (author === null) return;
+    while (true) {
+        let durationInput = prompt("Введіть тривалість подкасту в хвилинах:");
+        if (durationInput === null) return;
+        duration = +durationInput;
+
+        if (!isNaN(duration) && duration > 0) {
+            break;
+        } else {
+            alert("Введіть коректне число для тривалості.");
+        }
+    }
     let topic = prompt("Введіть тему підкасту")
+    if (topic === null) return;
     let isListened = confirm("Чи прослухано підкаст?")
 
     podcastPlaylist.push({ title, author, duration ,topic , isListened })
