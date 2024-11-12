@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CSSGenerator</title>
+  <link rel="stylesheet" href="cssgen.css">
+</head>
+<body>
+<div id="tabs">
+  <div class="tab whiteborder">border-radius</div>
+  <div class="tab">text-indent</div>
+  <div class="tab">text-shadow</div>
+  <div class="tabContent"><div>Верхній лівий радіус:
+    <input type="range" id="rtl" min="0" max="100" value="0" oninput="generate()">
+    <input type="text" id="ttl" value="0">
+  </div>
+    <div>Верхній правий радіус:
+      <input type="range" id="rtr" min="0" max="100" value="0" oninput="generate()">
+      <input type="text" id="ttr" value="0">
+    </div>
+    <div>Нижній правий радіус:
+      <input type="range" id="rbr" min="0" max="100" value="0" oninput="generate()">
+      <input type="text" id="tbr" value="0">
+    </div>
+    <div>Нижній лівий радіус:
+      <input type="range" id="rbl" min="0" max="100" value="0" oninput="generate()">
+      <input type="text" id="tbl" value="0">
+    </div>
+    <div id="block"></div>
+    <script src="cssgen.js"></script>
+    <textarea id="cssOutput" rows="3" readonly></textarea></div>
+  <div class="tabContent">
+    <h3>Налаштування text-indent:</h3>
+    <div>
+      Відступ тексту:
+      <input type="range" id="indentRange" min="-100" max="100" value="0" oninput="updateIndent()">
+      <input type="text" id="indentValue" value="0">
+    </div>
+    <div id="textBlock">Тестовий текст для перевірки</div>
+    <textarea id="indentCSSOutput" rows="3" readonly></textarea>
+  </div>
+  <div class="tabContent">
+    <div>Зміщення по X:
+      <input type="range" id="shadowXRange" min="-20" max="20" value="0" oninput="updateShadow()">
+      <input type="text" id="shadowXValue" value="0">
+    </div>
+    <div>Зміщення по Y:
+      <input type="range" id="shadowYRange" min="-20" max="20" value="0" oninput="updateShadow()">
+      <input type="text" id="shadowYValue" value="0">
+    </div>
+    <div>Розмиття:
+      <input type="range" id="shadowBlurRange" min="0" max="30" value="0" oninput="updateShadow()">
+      <input type="text" id="shadowBlurValue" value="0">
+    </div>
+    <div>Колір тіні:
+      <input type="color" id="shadowColorPicker" value="#000000" oninput="updateShadow()">
+    </div>
+    <div id="shadowBlock">Тестовий текст для перевірки</div>
+    <textarea id="shadowCSSOutput" rows="3" readonly></textarea>
+  </div>
+
+</div>
+</body>
+</html>
