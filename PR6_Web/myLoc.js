@@ -1,25 +1,14 @@
-// Координати коледжу
 let ourCoords = { latitude: 48.94321, longitude: 24.73380 };
-
-// Глобальні змінні
 let map, userMarker, collegeMarker, destinationMarker, watchId = null;
 
-// Ініціалізація карти
 function initMap() {
     map = L.map('map').setView([ourCoords.latitude, ourCoords.longitude], 13);
 
-    // Додавання плиток OpenStreetMap
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     }).addTo(map);
-
-    // Додавання маркера коледжу
-    collegeMarker = L.marker([ourCoords.latitude, ourCoords.longitude])
-        .addTo(map)
-        .bindPopup('College Location');
 }
 
-// Отримання місцеположення
 function getMyLocation() {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(displayLocation, displayError);
@@ -31,7 +20,6 @@ function getMyLocation() {
     }
 }
 
-// Відображення місцеположення
 function displayLocation(position) {
     let latitude = position.coords.latitude;
     let longitude = position.coords.longitude;
@@ -49,19 +37,17 @@ function displayLocation(position) {
         return;
     }
 
-    // Оновлення маркера користувача
     if (userMarker) {
         map.removeLayer(userMarker);
     }
     userMarker = L.marker([latitude, longitude])
         .addTo(map)
-        .bindPopup('Your Location')
+        .bindPopup(`You are here: ${latitude}, ${longitude}`)
         .openPopup();
 
     map.setView([latitude, longitude]);
 }
 
-// Обробка помилок геолокації
 function displayError(error) {
     const errorTypes = {
         0: "Unknown error",
@@ -76,7 +62,6 @@ function displayError(error) {
     document.getElementById("location").innerHTML = errorMessage;
 }
 
-// Обчислення відстані між координатами
 function computeDistance(startCoords, destCoords) {
     let startLatRads = degreesToRadians(startCoords.latitude);
     let startLongRads = degreesToRadians(startCoords.longitude);
@@ -91,17 +76,14 @@ function computeDistance(startCoords, destCoords) {
     return distance;
 }
 
-// Переведення градусів у радіани
 function degreesToRadians(degrees) {
     return (degrees * Math.PI) / 180;
 }
 
-// Стеження за місцеположенням
 function watchLocation() {
     watchId = navigator.geolocation.watchPosition(displayLocation, displayError);
 }
 
-// Зупинка стеження
 function clearWatch() {
     if (watchId) {
         navigator.geolocation.clearWatch(watchId);
@@ -109,7 +91,6 @@ function clearWatch() {
     }
 }
 
-// Переміщення до заданого пункту призначення
 function goToDestination(event) {
     event.preventDefault();
 
@@ -121,7 +102,6 @@ function goToDestination(event) {
         return;
     }
 
-    // Додавання маркера пункту призначення
     if (destinationMarker) {
         map.removeLayer(destinationMarker);
     }
@@ -133,7 +113,6 @@ function goToDestination(event) {
     map.setView([destLatitude, destLongitude]);
 }
 
-// Ініціалізація при завантаженні сторінки
 document.addEventListener('DOMContentLoaded', () => {
     initMap();
     getMyLocation();
