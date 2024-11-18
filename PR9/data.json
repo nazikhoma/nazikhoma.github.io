@@ -1,0 +1,65 @@
+{
+  "title": "Фотоапарати",
+  "products": [
+    {
+      "name": "Canon EOS R10",
+      "category": "Фотоапарати",
+      "price": "",
+      "badge": "new",
+      "image": "img/camera1.avif",
+      "alt": "Фотоапарат Canon",
+      "buttonText": "Незабаром у продажі",
+      "buttonDisabled": true
+    },
+    {
+      "name": "Nikon Z50",
+      "category": "Фотоапарати",
+      "price": "16 500 грн",
+      "badge": "",
+      "image": "img/camera2.webp",
+      "alt": "Фотоапарат Nikon",
+      "buttonText": "У кошик",
+      "buttonDisabled": false
+    },
+    {
+      "name": "Sony Alpha a6400",
+      "category": "Фотоапарати",
+      "price": "20 000 грн",
+      "badge": "hit",
+      "image": "img/camera3.webp",
+      "alt": "Фотоапарат Sony",
+      "buttonText": "У кошик",
+      "buttonDisabled": false
+    },
+    {
+      "name": "Fujifilm X-T30 II",
+      "category": "Фотоапарати",
+      "price": "22 000 грн",
+      "badge": "hit",
+      "image": "img/camera4.jpg",
+      "alt": "Фотоапарат Fujifilm",
+      "buttonText": "У кошик",
+      "buttonDisabled": false
+    },
+    {
+      "name": "Panasonic Lumix GH5",
+      "category": "Фотоапарати",
+      "price": "30 000 грн",
+      "badge": "new",
+      "image": "img/camera5.jpg",
+      "alt": "Фотоапарат Panasonic",
+      "buttonText": "У кошик",
+      "buttonDisabled": false
+    },
+    {
+      "name": "Olympus OM-D E-M10 Mark IV",
+      "category": "Фотоапарати",
+      "price": "18 000 грн",
+      "badge": "hit",
+      "image": "img/camera6.jpg",
+      "alt": "Фотоапарат Olympus",
+      "buttonText": "У кошик",
+      "buttonDisabled": false
+    }
+  ]
+}

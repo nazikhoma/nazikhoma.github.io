@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Фотоапарати</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="cart-icon" onclick="openCart()">
+    <img src="img/cart-icon.png" alt="Корзина">
+    <span id="cart-count">0</span>
+</div>
+
+<div class="container"></div>
+
+<div id="quantity-modal" class="modal">
+    <div class="modal-content">
+        <p>Вкажіть кількість:</p>
+        <input type="number" id="quantity-input" min="1" value="1">
+        <button onclick="addToCart()">Додати до корзини</button>
+        <button onclick="closeModal()">Скасувати</button>
+    </div>
+</div>
+
+<div id="confirmation-modal" class="modal">
+    <div class="modal-content">
+        <p>Товар додано!</p>
+        <button onclick="goToCart()">Перейти у корзину</button>
+        <button onclick="closeConfirmationModal()">Повернутись до покупок</button>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Корзина</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<h2>Ви обрали:</h2>
+<table id="cart-items">
+    <thead>
+    <tr>
+        <th>№</th>
+        <th>Назва товару</th>
+        <th>Ціна за од.</th>
+        <th>К-сть</th>
+        <th>Сума</th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody></tbody>
+</table>
+<p>Разом до оплати: <span id="total-price">0</span> грн.</p>
+<button onclick="location.href='index.html'">Повернутись до покупок</button>
+<button onclick="pay()">Оплатити</button>
+
+<div id="confirm-delete-modal" class="modal">
+    <div class="modal-content">
+        <p>Ви дійсно хочете видалити цей товар?</p>
+        <button onclick="confirmDelete()">Так</button>
+        <button onclick="closeConfirmDeleteModal()">Ні</button>
+    </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
