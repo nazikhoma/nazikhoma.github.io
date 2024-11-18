@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Корзина</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<h2>Ви обрали:</h2>
+<table id="cart-items">
+    <thead>
+    <tr>
+        <th>№</th>
+        <th>Назва товару</th>
+        <th>Ціна за од.</th>
+        <th>К-сть</th>
+        <th>Сума</th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    </tbody>
+</table>
+<p>Разом до оплати: <span id="total-price">0</span> грн.</p>
+
+<button onclick="location.href='index.html'">Повернутись до покупок</button>
+<button onclick="pay()">Оплатити</button>
+
+<script>
+    const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+    const cartItemsTable = document.getElementById('cart-items').getElementsByTagName('tbody')[0];
+    const totalPriceElement = document.getElementById('total-price');
+
+    let totalPrice = 0;
+
+    function displayCartItems() {
+        cartItemsTable.innerHTML = '';
+        totalPrice = 0;
+
+        cartItems.forEach((item, index) => {
+            const row = cartItemsTable.insertRow();
+            const numberCell = row.insertCell();
+            const productCell = row.insertCell();
+            const priceCell = row.insertCell();
+            const quantityCell = row.insertCell();
+            const sumCell = row.insertCell();
+            const removeCell = row.insertCell();
+
+            numberCell.textContent = index + 1;
+            productCell.textContent = item.product;
+            priceCell.textContent = getItemPrice(item.product);
+            quantityCell.innerHTML = `<input type="number" min="1" value="${item.quantity}" onchange="updateQuantity(${index}, this.value)">`;
+            sumCell.textContent = getItemPrice(item.product) * item.quantity;
+
+            const removeButton = document.createElement('button');
+            removeButton.textContent = 'Видалити';
+            removeButton.onclick = () => removeItem(index);
+            removeCell.appendChild(removeButton);
+
+            totalPrice += getItemPrice(item.product) * item.quantity;
+        });
+
+        totalPriceElement.textContent = totalPrice;
+    }
+
+    function getItemPrice(productName) {
+        switch (productName) {
+            case 'Nikon Z50': return 16500;
+            case 'Sony Alpha a6400': return 20000;
+            case 'Fujifilm X-T30 II': return 22000;
+            default: return 0;
+        }
+    }
+
+    function updateQuantity(index, newQuantity) {
+        cartItems[index].quantity = parseInt(newQuantity);
+        localStorage.setItem('cart', JSON.stringify(cartItems));
+        displayCartItems();
+    }
+
+    function removeItem(index) {
+        cartItems.splice(index, 1);
+        localStorage.setItem('cart', JSON.stringify(cartItems));
+        displayCartItems();
+    }
+
+    function pay() {
+        alert("Оплата пройшла успішно!");
+        localStorage.clear();
+        location.href = 'index.html';
+    }
+
+    displayCartItems();
+</script>
+</body>
+</html>
