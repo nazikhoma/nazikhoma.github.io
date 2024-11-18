@@ -1,71 +1,69 @@
 <!DOCTYPE html>
 <html lang="uk">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Фотоапарати</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Фотоапарати</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <div class="cart-icon" onclick="openCart()">
-  <img src="img/cart-icon.png" alt="Корзина">
-  <span id="cart-count">0</span>
+    <img src="img/cart-icon.png" alt="Корзина">
+    <span id="cart-count">0</span>
 </div>
 
 <div class="container">
-  <div class="product-card">
-    <div class="category">Фотоапарати</div>
-    <div class="badge new top-right">Новинка</div>
-    <img src="img/camera1.avif" alt="Фотоапарат Canon">
-    <h3>Canon EOS R10</h3>
-    <p class="price">‎</p>
-    <button class="add-to-cart" style="background: purple" disabled>Незабаром у продажі</button>
-  </div>
+    <div class="product-card">
+        <div class="category">Фотоапарати</div>
+        <div class="badge new top-right">Новинка</div>
+        <img src="img/camera1.avif" alt="Фотоапарат Canon">
+        <h3>Canon EOS R10</h3>
+        <p class="price">‎</p>
+        <button class="add-to-cart" style="background: purple" disabled>Незабаром у продажі</button>
+    </div>
 
-  <div class="product-card">
-    <div class="category">Фотоапарати</div>
-    <img src="img/camera2.webp" alt="Фотоапарат Nikon">
-    <h3>Nikon Z50</h3>
-    <p class="price">
-      <span class="old-price">18 000 грн</span> 16 500 грн
-    </p>
-    <button class="add-to-cart" onclick="showQuantityModal('Nikon Z50')">У кошик</button>
-  </div>
+    <div class="product-card">
+        <div class="category">Фотоапарати</div>
+        <img src="img/camera2.webp" alt="Фотоапарат Nikon">
+        <h3>Nikon Z50</h3>
+        <p class="price">16 500 грн</p>
+        <button class="add-to-cart" onclick="showQuantityModal(this)">У кошик</button>
+    </div>
 
-  <div class="product-card">
-    <div class="category">Фотоапарати</div>
-    <div class="badge hit top-right">Хіт продажів</div>
-    <img src="img/camera3.webp" alt="Фотоапарат Sony">
-    <h3>Sony Alpha a6400</h3>
-    <p class="price">20 000 грн</p>
-    <button class="add-to-cart" onclick="showQuantityModal('Sony Alpha a6400')">У кошик</button>
-  </div>
+    <div class="product-card">
+        <div class="category">Фотоапарати</div>
+        <div class="badge hit top-right">Хіт продажів</div>
+        <img src="img/camera3.webp" alt="Фотоапарат Sony">
+        <h3>Sony Alpha a6400</h3>
+        <p class="price">20 000 грн</p>
+        <button class="add-to-cart" onclick="showQuantityModal(this)">У кошик</button>
+    </div>
 
-  <div class="product-card">
-    <div class="category">Фотоапарати</div>
-    <div class="badge hit top-right">Хіт продажів</div>
-    <img src="img/camera4.jpg" alt="Фотоапарат Fujifilm">
-    <h3>Fujifilm X-T30 II</h3>
-    <p class="price">22 000 грн</p>
-    <button class="add-to-cart" onclick="showQuantityModal('Fujifilm X-T30 II')">У кошик</button>
-  </div>
+    <div class="product-card">
+        <div class="category">Фотоапарати</div>
+        <div class="badge hit top-right">Хіт продажів</div>
+        <img src="img/camera4.jpg" alt="Фотоапарат Fujifilm">
+        <h3>Fujifilm X-T30 II</h3>
+        <p class="price">22 000 грн</p>
+        <button class="add-to-cart" onclick="showQuantityModal(this)">У кошик</button>
+    </div>
 </div>
 
 <div id="quantity-modal" class="modal">
-  <div class="modal-content">
-    <p>Вкажіть кількість:</p>
-    <input type="number" id="quantity-input" min="1" value="1">
-    <button onclick="addToCart()">Додати до корзини</button>
-    <button onclick="closeModal()">Скасувати</button>
-  </div>
+    <div class="modal-content">
+        <p>Вкажіть кількість:</p>
+        <input type="number" id="quantity-input" min="1" value="1">
+        <button onclick="addToCart()">Додати до корзини</button>
+        <button onclick="closeModal()">Скасувати</button>
+    </div>
 </div>
 
-<div id="message-modal" class="modal">
-  <div class="modal-content">
-    <p id="message-text"></p>
-    <button onclick="goToCart()">Перейти у корзину</button>
-    <button onclick="closeModal()">Повернутись до покупок</button>
-  </div>
+<div id="confirmation-modal" class="modal">
+    <div class="modal-content">
+        <p>Товар додано!</p>
+        <button onclick="goToCart()">Перейти у корзину</button>
+        <button onclick="closeConfirmationModal()">Повернутись до покупок</button>
+    </div>
 </div>
 
 <script src="script.js"></script>

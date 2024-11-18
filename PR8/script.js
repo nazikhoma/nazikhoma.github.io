@@ -1,7 +1,9 @@
 let cart = JSON.parse(localStorage.getItem('cart')) || [];
 let selectedProduct = '';
+let selectedPrice = 0;
+let itemToDeleteIndex = -1;
 
-document.addEventListener('DOMContentLoaded', updateCartCount);
+updateCartCount();
 
 function openCart() {
     if (cart.length === 0) {
@@ -11,42 +13,119 @@ function openCart() {
     }
 }
 
-function showQuantityModal(product) {
-    selectedProduct = product;
+function showQuantityModal(button) {
+    const productCard = button.closest('.product-card');
+    selectedProduct = productCard.querySelector('h3').innerText;
+    const priceText = productCard.querySelector('.price').innerText;
+    selectedPrice = parseInt(priceText.replace(/\D/g, ''));
+    document.getElementById('quantity-input').value = 1;
+
     document.getElementById('quantity-modal').style.display = 'flex';
 }
 
 function closeModal() {
-    document.getElementById('quantity-modal').style.display = 'none';
-    document.getElementById('message-modal').style.display = 'none';
+    document.querySelectorAll('.modal').forEach(modal => modal.style.display = 'none');
+}
+
+function showConfirmationModal() {
+    document.getElementById('confirmation-modal').style.display = 'flex';
 }
 
 function addToCart() {
     const quantity = parseInt(document.getElementById('quantity-input').value);
     if (quantity > 0) {
-        const existingItemIndex = cart.findIndex(item => item.product === selectedProduct);
-        if (existingItemIndex > -1) {
-            cart[existingItemIndex].quantity += quantity;
-        } else {
-            cart.push({ product: selectedProduct, quantity });
-        }
-
+        cart.push({ product: selectedProduct, quantity, price: selectedPrice });
         localStorage.setItem('cart', JSON.stringify(cart));
+        console.log(cart);
         updateCartCount();
         closeModal();
-        showMessage('Товар додано');
+        showConfirmationModal();
     }
 }
 
-function showMessage(message) {
-    document.getElementById('message-text').innerText = message;
-    document.getElementById('message-modal').style.display = 'flex';
-}
+function updateCartCount() {
+    const cartCountElement = document.getElementById('cart-count');
+    const totalPriceElement = document.getElementById('total-price');
 
+    if (cartCountElement) {
+        cartCountElement.textContent = cart.length;
+    }
+
+    let totalPrice = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+    if (totalPriceElement) {
+        totalPriceElement.textContent = totalPrice + ' грн';
+    }
+}
 function goToCart() {
     location.href = 'cart.html';
 }
 
-function updateCartCount() {
-    document.getElementById('cart-count').textContent = cart.length;
+function closeConfirmationModal() {
+    document.getElementById('confirmation-modal').style.display = 'none';
+}
+
+function displayCartItems() {
+    const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+    const cartItemsTable = document.getElementById('cart-items').getElementsByTagName('tbody')[0];
+    let totalPrice = 0;
+
+    cartItemsTable.innerHTML = '';
+
+    cartItems.forEach((item, index) => {
+        const row = cartItemsTable.insertRow();
+        row.insertCell().textContent = index + 1;
+        row.insertCell().textContent = item.product;
+        row.insertCell().textContent = item.price;
+        const quantityCell = row.insertCell();
+        quantityCell.innerHTML = `<input type="number" min="1" value="${item.quantity}" onchange="updateQuantity(${index}, this.value)">`;
+        row.insertCell().textContent = item.price * item.quantity;
+
+        const removeButton = document.createElement('button');
+        removeButton.textContent = 'Видалити';
+        removeButton.onclick = () => removeItem(index);
+        row.insertCell().appendChild(removeButton);
+
+        totalPrice += item.price * item.quantity;
+    });
+
+    const totalPriceElement = document.getElementById('total-price');
+    if (totalPriceElement) {
+        totalPriceElement.textContent = totalPrice + ' грн';
+    }
+}
+
+
+if (location.pathname.includes('cart.html')) {
+    displayCartItems();
+}
+
+function updateQuantity(index, newQuantity) {
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    cart[index].quantity = parseInt(newQuantity);
+    localStorage.setItem('cart', JSON.stringify(cart));
+    displayCartItems();
+}
+
+function removeItem(index) {
+    itemToDeleteIndex = index;
+    document.getElementById('confirm-delete-modal').style.display = 'flex';
+}
+
+function pay() {
+    alert("Оплата пройшла успішно!");
+    localStorage.removeItem('cart');
+    location.href = 'index.html';
+}
+
+function confirmDelete() {
+    if (itemToDeleteIndex !== -1) {
+        cart.splice(itemToDeleteIndex, 1);
+        localStorage.setItem('cart', JSON.stringify(cart));
+        displayCartItems();
+        closeConfirmDeleteModal();
+    }
+}
+
+function closeConfirmDeleteModal() {
+    document.getElementById('confirm-delete-modal').style.display = 'none';
 }
