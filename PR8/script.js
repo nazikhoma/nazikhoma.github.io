@@ -45,17 +45,11 @@ function addToCart() {
 
 function updateCartCount() {
     const cartCountElement = document.getElementById('cart-count');
-    const totalPriceElement = document.getElementById('total-price');
-
     if (cartCountElement) {
         cartCountElement.textContent = cart.length;
     }
-
-    let totalPrice = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
-    if (totalPriceElement) {
-        totalPriceElement.textContent = totalPrice + ' грн';
-    }
 }
+
 function goToCart() {
     location.href = 'cart.html';
 }
@@ -78,14 +72,14 @@ function displayCartItems() {
         row.insertCell().textContent = item.price;
         const quantityCell = row.insertCell();
         quantityCell.innerHTML = `<input type="number" min="1" value="${item.quantity}" onchange="updateQuantity(${index}, this.value)">`;
-        row.insertCell().textContent = item.price * item.quantity;
+        const itemTotalPrice = item.price * item.quantity;
+        row.insertCell().textContent = itemTotalPrice;
 
         const removeButton = document.createElement('button');
         removeButton.textContent = 'Видалити';
         removeButton.onclick = () => removeItem(index);
         row.insertCell().appendChild(removeButton);
-
-        totalPrice += item.price * item.quantity;
+        totalPrice += itemTotalPrice;
     });
 
     const totalPriceElement = document.getElementById('total-price');
@@ -94,16 +88,19 @@ function displayCartItems() {
     }
 }
 
-
 if (location.pathname.includes('cart.html')) {
     displayCartItems();
 }
 
 function updateQuantity(index, newQuantity) {
     const cart = JSON.parse(localStorage.getItem('cart')) || [];
-    cart[index].quantity = parseInt(newQuantity);
-    localStorage.setItem('cart', JSON.stringify(cart));
-    displayCartItems();
+    const quantity = parseInt(newQuantity);
+
+    if (quantity > 0) {
+        cart[index].quantity = quantity;
+        localStorage.setItem('cart', JSON.stringify(cart));
+        displayCartItems();
+    }
 }
 
 function removeItem(index) {
