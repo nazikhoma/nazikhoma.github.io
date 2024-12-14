@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Хома Назар ПІ-21-01</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+Купити:
+
+<select name="first_curr" id="first_curr">
+    <option value="uah">Гривні</option>
+    <option value="usd">Долари</option>
+    <option value="eur">Евро</option>
+</select>
+
+за:
+
+<select name="first_curr" id="second_curr">
+    <option value="uah">Гривні</option>
+    <option value="usd" selected>Долари</option>
+    <option value="eur">Евро</option>
+</select>
+
+<label for="num">Купити суму:</label><input type="text" id="num">
+<p>Вартість: <b id="result"></b></p>
+<script src="script.js"></script>
+</body>
+</html>
